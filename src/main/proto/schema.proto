@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option java_package = "com.grpcdemo.grpc.protofile";
+
+option java_multiple_files =true;
+ 
+
+message Car{
+     int32 car_no= 1;
+     string car_name= 2;
+     string car_model= 3; 
+}
+
+message CarRequest{
+}
+service CarService{
+    
+    rpc getCar(Car) returns (Car){ };
+
+    rpc getAllCars(CarRequest) returns (stream Car){};
+
+}
